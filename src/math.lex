@@ -1,32 +1,24 @@
 %{
-  #include <iostream>
-  #include <string>
+#include <iostream>
+#include <string>
+#include "y.tab.h"  // to get the token types
 %}
 
 %%
 
+[0-9]+\.[0-9]+ { yylval.fval = atof(yytext); return FLOAT; }
+[0-9]+         { yylval.ival = atoi(yytext); return INT; }
+
+[a-zA-Z0-9]+   {
+  // we have to copy because we can't rely on yytext not changing underneath us:
+  char *res = new char[strlen(yytext) + 1];
+  strcpy(res, yytext);
+  yylval.sval = res;
+  return STRING;
+}
+
 [ \t] ;
-[0-9]+\.[0-9]+ { std::cout << "Found a floating-point number:" << yytext << std::endl; }
-[0-9]+         { std::cout << "Found an integer:" << yytext << std::endl; }
-[a-zA-Z0-9]+   { std::cout << "Found a string: " << yytext << std::endl; }
+\n ;
+. ;
 
 %%
-
-int main() {
-  std::string filename = "examples/math001.math";
-
-  FILE *f = fopen(filename.c_str(), "r");
-
-  // make sure it's valid:
-  if (!f) {
-    std::cout << "I can't open '" + filename + "'!" << std::endl;
-    return -1;
-  }
-
-  // set lex to read from it instead of defaulting to STDIN:
-  yyin = f;
-
-  yylex();
-
-  return 0;
-}

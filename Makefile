@@ -1,8 +1,7 @@
-.PHONY: gen_lexer build
+.PHONY: build
 
-build: gen_lexer
+build:
 	mkdir -p bin
-	g++ src/lex.yy.c -lfl -o bin/lexer
-
-gen_lexer:
+	yacc -o src/y.tab.c -d src/math.y
 	flex -o src/lex.yy.c src/math.lex
+	g++ src/y.tab.c src/lex.yy.c -I src -lfl -o bin/math
