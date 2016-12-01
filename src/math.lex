@@ -1,21 +1,19 @@
 %{
 #include <iostream>
 #include <string>
+#include "ast.hpp"
 #include "y.tab.h"  // to get the token types
 %}
 
 %%
 
-[0-9]+\.[0-9]+ { yylval.fval = atof(yytext); return FLOAT; }
-[0-9]+         { yylval.ival = atoi(yytext); return INT; }
+[0-9]+\.[0-9]+ { yylval.number = atof(yytext); return NUMBER; }
+[1-9][0-9]*    { yylval.number = atof(yytext); return NUMBER; }
 
-[a-zA-Z0-9]+   {
-  // we have to copy because we can't rely on yytext not changing underneath us:
-  char *res = new char[strlen(yytext) + 1];
-  strcpy(res, yytext);
-  yylval.sval = res;
-  return STRING;
-}
+"+" { return PLUS; }
+"-" { return MINUS; }
+"*" { return TIMES; }
+"/" { return DIVIDE; }
 
 [ \t] ;
 \n ;

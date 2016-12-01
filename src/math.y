@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstdlib>
 
+#include "ast.hpp"
+
 extern int yylex(void);
 extern void yyerror(const char *);
 extern FILE *yyin;
@@ -10,29 +12,44 @@ void yyerror(const char *s) {
   std::cout << "EEK, parse error!  Message: " << s << std::endl;
   exit(-1);
 }
+
+Expression* root = NULL;
 %}
 
 %union {
-  int    ival;
-  float  fval;
-  char*  sval;
-}
+  double number;
+  Expression* node;
+  Expression* math;
+};
 
-%token <ival> INT
-%token <fval> FLOAT
-%token <sval> STRING
+%token NUMBER
+%token PLUS MINUS TIMES DIVIDE
 
+%left PLUS MINUS
+%left TIMES DIVIDE
+%left NEG
+
+%type <node> expression
+%type <math> math
+%type <number> NUMBER
+
+%start math
 %%
 
-math:
-    INT math       { std::cout << "yacc found an int:   " << $1 << std::endl; }
-    | FLOAT math   { std::cout << "yacc found a float:  " << $1 << std::endl; }
-    | STRING math  { std::cout << "yacc found a string: " << $1 << std::endl; }
-    | INT          { std::cout << "yacc found an int:   " << $1 << std::endl; }
-    | FLOAT        { std::cout << "yacc found a float:  " << $1 << std::endl; }
-    | STRING       { std::cout << "yacc found a string: " << $1 << std::endl; }
+math: expression { root = $$; }
     ;
+
+expression:
+  NUMBER { $$ = new Number($1); }
+  | expression PLUS expression   { $$ = new Plus($1, $3); }
+  /* | expression MINUS expression  { $$ = new Minus($1, $3); } */
+  /* | expression TIMES expression  { $$ = new Times($1, $3); } */
+  /* | expression DIVIDE expression { $$ = new Divide($1, $3); } */
+  /* | MINUS expression %prec NEG   { $$ = new Number(-$2); } */
+  ;
+
 %%
+
 #include <stdio.h>
 
 int main() {
@@ -52,6 +69,8 @@ int main() {
   do {
     yyparse();
   } while(!feof(yyin));
+
+  std::cout << root->value() << std::endl;
 
   return 0;
 }

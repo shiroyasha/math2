@@ -45,28 +45,34 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    INT = 258,
-    FLOAT = 259,
-    STRING = 260
+    NUMBER = 258,
+    PLUS = 259,
+    MINUS = 260,
+    TIMES = 261,
+    DIVIDE = 262,
+    NEG = 263
   };
 #endif
 /* Tokens.  */
-#define INT 258
-#define FLOAT 259
-#define STRING 260
+#define NUMBER 258
+#define PLUS 259
+#define MINUS 260
+#define TIMES 261
+#define DIVIDE 262
+#define NEG 263
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE YYSTYPE;
 union YYSTYPE
 {
-#line 15 "src/math.y" /* yacc.c:1909  */
+#line 19 "src/math.y" /* yacc.c:1909  */
 
-  int    ival;
-  float  fval;
-  char*  sval;
+  double number;
+  Expression* node;
+  Expression* math;
 
-#line 70 "src/y.tab.h" /* yacc.c:1909  */
+#line 76 "src/y.tab.h" /* yacc.c:1909  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
