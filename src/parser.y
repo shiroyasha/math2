@@ -4,18 +4,14 @@
 
 #include "lex.yy.h"
 
-/* extern int yylex(void); */
-/* extern void yyerror(double* result, const char *); */
-
 void yyerror(double* result, const char *s) {
   std::cout << "EEK, parse error!  Message: " << s << std::endl;
   exit(-1);
 }
 
-#define YYTYPE double;
-
 %}
 
+%define api.value.type {double}
 %parse-param {double* result}
 
 %token LINE_END

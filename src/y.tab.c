@@ -69,18 +69,13 @@
 
 #include "lex.yy.h"
 
-/* extern int yylex(void); */
-/* extern void yyerror(double* result, const char *); */
-
 void yyerror(double* result, const char *s) {
   std::cout << "EEK, parse error!  Message: " << s << std::endl;
   exit(-1);
 }
 
-#define YYTYPE double;
 
-
-#line 84 "src/y.tab.c" /* yacc.c:339  */
+#line 79 "src/y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -135,7 +130,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef double YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -163,7 +158,7 @@ int yyparse (double* result);
 
 /* Copy the second part of user declarations.  */
 
-#line 167 "src/y.tab.c" /* yacc.c:358  */
+#line 162 "src/y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -463,7 +458,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    33,    33,    34,    38,    39,    40,    41,    42,    50
+       0,    29,    29,    30,    34,    35,    36,    37,    38,    46
 };
 #endif
 
@@ -1329,43 +1324,43 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 33 "src/parser.y" /* yacc.c:1646  */
+#line 29 "src/parser.y" /* yacc.c:1646  */
     { *result = 0; }
-#line 1335 "src/y.tab.c" /* yacc.c:1646  */
+#line 1330 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 34 "src/parser.y" /* yacc.c:1646  */
+#line 30 "src/parser.y" /* yacc.c:1646  */
     { *result = (yyval); }
-#line 1341 "src/y.tab.c" /* yacc.c:1646  */
+#line 1336 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 38 "src/parser.y" /* yacc.c:1646  */
+#line 34 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[0]); }
-#line 1347 "src/y.tab.c" /* yacc.c:1646  */
+#line 1342 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 39 "src/parser.y" /* yacc.c:1646  */
+#line 35 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) + (yyvsp[0]); }
-#line 1353 "src/y.tab.c" /* yacc.c:1646  */
+#line 1348 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 40 "src/parser.y" /* yacc.c:1646  */
+#line 36 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) - (yyvsp[0]); }
-#line 1359 "src/y.tab.c" /* yacc.c:1646  */
+#line 1354 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 41 "src/parser.y" /* yacc.c:1646  */
+#line 37 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) * (yyvsp[0]); }
-#line 1365 "src/y.tab.c" /* yacc.c:1646  */
+#line 1360 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 42 "src/parser.y" /* yacc.c:1646  */
+#line 38 "src/parser.y" /* yacc.c:1646  */
     {
     if((yyvsp[0]) != 0) {
       (yyval) = (yyvsp[-2]) / (yyvsp[0]);
@@ -1374,17 +1369,17 @@ yyreduce:
       fprintf (stderr, "%d.%d-%d.%d: division by zero", (yylsp[0]).first_line, (yylsp[0]).first_column, (yylsp[0]).last_line, (yylsp[0]).last_column);
     }
   }
-#line 1378 "src/y.tab.c" /* yacc.c:1646  */
+#line 1373 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 50 "src/parser.y" /* yacc.c:1646  */
+#line 46 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = -(yyvsp[0]); }
-#line 1384 "src/y.tab.c" /* yacc.c:1646  */
+#line 1379 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1388 "src/y.tab.c" /* yacc.c:1646  */
+#line 1383 "src/y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1619,5 +1614,5 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 53 "src/parser.y" /* yacc.c:1906  */
+#line 49 "src/parser.y" /* yacc.c:1906  */
 
