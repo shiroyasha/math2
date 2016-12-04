@@ -66,6 +66,25 @@ TEST(SubtractionTest, HandlesNegativeNumbers) {
 }
 
 
+/* exponents */
+
+TEST(ExponentTest, HandlesPositiveNumbers) {
+  ASSERT_EQ(25, evaluate("5 ^ 2"));
+}
+
+TEST(ExponentTest, HandlesNegativeNumbers) {
+  ASSERT_EQ(-125, evaluate("-5 ^ 3"));
+}
+
+TEST(ExponentTest, HasHigherPrecedenceThanMultiplication) {
+  ASSERT_EQ(-250, evaluate("-5 ^ 3 * 2"));
+}
+
+TEST(ExponentTest, HasHigherPrecedenceThanDivision) {
+  ASSERT_EQ(-25, evaluate("-5 ^ 3 / 5"));
+}
+
+
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

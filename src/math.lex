@@ -18,6 +18,7 @@
 "-" { return MINUS; }
 "*" { return TIMES; }
 "/" { return DIVIDE; }
+"^" { return EXPONENT; }
 
 \n { return LINE_END; }
 

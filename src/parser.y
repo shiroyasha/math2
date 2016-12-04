@@ -1,6 +1,7 @@
 %{
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 
 #include "lex.yy.h"
 
@@ -16,10 +17,11 @@ void yyerror(double* result, const char *s) {
 
 %token LINE_END
 %token NUMBER
-%token PLUS MINUS TIMES DIVIDE
+%token PLUS MINUS TIMES DIVIDE EXPONENT
 
 %left PLUS MINUS
 %left TIMES DIVIDE
+%right EXPONENT
 %left NEG
 
 %start input
@@ -43,6 +45,7 @@ expression:
       fprintf (stderr, "%d.%d-%d.%d: division by zero", @3.first_line, @3.first_column, @3.last_line, @3.last_column);
     }
   }
+  | expression EXPONENT expression  { $$ = pow($1, $3); }
   | MINUS expression %prec NEG   { $$ = -$2; }
   ;
 

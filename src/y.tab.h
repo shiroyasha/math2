@@ -51,7 +51,8 @@ extern int yydebug;
     MINUS = 261,
     TIMES = 262,
     DIVIDE = 263,
-    NEG = 264
+    EXPONENT = 264,
+    NEG = 265
   };
 #endif
 /* Tokens.  */
@@ -61,7 +62,8 @@ extern int yydebug;
 #define MINUS 261
 #define TIMES 262
 #define DIVIDE 263
-#define NEG 264
+#define EXPONENT 264
+#define NEG 265
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

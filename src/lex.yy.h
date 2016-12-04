@@ -324,7 +324,7 @@ extern int yylex (void);
 #undef YY_DECL
 #endif
 
-#line 27 "src/math.lex"
+#line 28 "src/math.lex"
 
 
 #line 331 "src/lex.yy.h"
