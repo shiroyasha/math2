@@ -65,17 +65,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE YYSTYPE;
-union YYSTYPE
-{
-#line 22 "src/math.y" /* yacc.c:1909  */
-
-  double number;
-  Expression* node;
-  std::vector<Expression*>* math;
-
-#line 78 "src/y.tab.h" /* yacc.c:1909  */
-};
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

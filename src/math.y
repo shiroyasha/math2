@@ -1,10 +1,6 @@
 %{
-
-#include <vector>
 #include <iostream>
 #include <cstdlib>
-
-#include "ast.hpp"
 
 extern int yylex(void);
 extern void yyerror(const char *);
@@ -15,15 +11,8 @@ void yyerror(const char *s) {
   exit(-1);
 }
 
-std::vector<Expression*>* exprs = new std::vector<Expression*>();
-
+#define YYTYPE double;
 %}
-
-%union {
-  double number;
-  Expression* node;
-  std::vector<Expression*>* math;
-};
 
 %token LINE_END
 %token NUMBER
@@ -33,27 +22,23 @@ std::vector<Expression*>* exprs = new std::vector<Expression*>();
 %left TIMES DIVIDE
 %left NEG
 
-%type <node> expression
-%type <math> math
-%type <number> NUMBER
-
 %start math
 %%
 
 math:
-  /* empty line */           { $$ = NULL; }
-  | LINE_END                 { $$ = NULL; }
-  | expression               { std::cout << $1->value() << std::endl; $$ = NULL; }
-  | expression LINE_END math { std::cout << $1->value() << std::endl; $$ = NULL; }
+  /* empty line */           { $$ = 0; }
+  | LINE_END                 { $$ = 0; }
+  | expression               { std::cout << $1 << std::endl; $$ = $1; }
+  | expression LINE_END math { std::cout << $1 << std::endl; $$ = $3; }
   ;
 
 expression:
-  NUMBER { $$ = new Number($1); }
-  | expression PLUS expression   { $$ = new Plus($1, $3); }
-  | expression MINUS expression  { $$ = new Minus($1, $3); }
-  | expression TIMES expression  { $$ = new Times($1, $3); }
-  | expression DIVIDE expression { $$ = new Divide($1, $3); }
-  | MINUS expression %prec NEG   { $$ = new Negative($2); }
+  NUMBER { $$ = $1; }
+  | expression PLUS expression   { $$ = $1 + $3; }
+  | expression MINUS expression  { $$ = $1 + $3; }
+  | expression TIMES expression  { $$ = $1 + $3; }
+  | expression DIVIDE expression { $$ = $1 + $3; }
+  | MINUS expression %prec NEG   { $$ = -$2; }
   ;
 
 %%

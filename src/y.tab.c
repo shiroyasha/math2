@@ -64,12 +64,8 @@
 /* Copy the first part of user declarations.  */
 #line 1 "src/math.y" /* yacc.c:339  */
 
-
-#include <vector>
 #include <iostream>
 #include <cstdlib>
-
-#include "ast.hpp"
 
 extern int yylex(void);
 extern void yyerror(const char *);
@@ -80,10 +76,9 @@ void yyerror(const char *s) {
   exit(-1);
 }
 
-std::vector<Expression*>* exprs = new std::vector<Expression*>();
+#define YYTYPE double;
 
-
-#line 87 "src/y.tab.c" /* yacc.c:339  */
+#line 82 "src/y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -138,17 +133,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE YYSTYPE;
-union YYSTYPE
-{
-#line 22 "src/math.y" /* yacc.c:355  */
-
-  double number;
-  Expression* node;
-  std::vector<Expression*>* math;
-
-#line 151 "src/y.tab.c" /* yacc.c:355  */
-};
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -162,7 +147,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 166 "src/y.tab.c" /* yacc.c:358  */
+#line 151 "src/y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -460,8 +445,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    44,    44,    45,    46,    47,    51,    52,    53,    54,
-      55,    56
+       0,    29,    29,    30,    31,    32,    36,    37,    38,    39,
+      40,    41
 };
 #endif
 
@@ -1234,67 +1219,67 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 44 "src/math.y" /* yacc.c:1646  */
-    { (yyval.math) = NULL; }
-#line 1240 "src/y.tab.c" /* yacc.c:1646  */
+#line 29 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = 0; }
+#line 1225 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 45 "src/math.y" /* yacc.c:1646  */
-    { (yyval.math) = NULL; }
-#line 1246 "src/y.tab.c" /* yacc.c:1646  */
+#line 30 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = 0; }
+#line 1231 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 46 "src/math.y" /* yacc.c:1646  */
-    { std::cout << (yyvsp[0].node)->value() << std::endl; (yyval.math) = NULL; }
-#line 1252 "src/y.tab.c" /* yacc.c:1646  */
+#line 31 "src/math.y" /* yacc.c:1646  */
+    { std::cout << (yyvsp[0]) << std::endl; (yyval) = (yyvsp[0]); }
+#line 1237 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 47 "src/math.y" /* yacc.c:1646  */
-    { std::cout << (yyvsp[-2].node)->value() << std::endl; (yyval.math) = NULL; }
-#line 1258 "src/y.tab.c" /* yacc.c:1646  */
+#line 32 "src/math.y" /* yacc.c:1646  */
+    { std::cout << (yyvsp[-2]) << std::endl; (yyval) = (yyvsp[0]); }
+#line 1243 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 51 "src/math.y" /* yacc.c:1646  */
-    { (yyval.node) = new Number((yyvsp[0].number)); }
-#line 1264 "src/y.tab.c" /* yacc.c:1646  */
+#line 36 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[0]); }
+#line 1249 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 52 "src/math.y" /* yacc.c:1646  */
-    { (yyval.node) = new Plus((yyvsp[-2].node), (yyvsp[0].node)); }
-#line 1270 "src/y.tab.c" /* yacc.c:1646  */
+#line 37 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) + (yyvsp[0]); }
+#line 1255 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 53 "src/math.y" /* yacc.c:1646  */
-    { (yyval.node) = new Minus((yyvsp[-2].node), (yyvsp[0].node)); }
-#line 1276 "src/y.tab.c" /* yacc.c:1646  */
+#line 38 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) + (yyvsp[0]); }
+#line 1261 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 54 "src/math.y" /* yacc.c:1646  */
-    { (yyval.node) = new Times((yyvsp[-2].node), (yyvsp[0].node)); }
-#line 1282 "src/y.tab.c" /* yacc.c:1646  */
+#line 39 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) + (yyvsp[0]); }
+#line 1267 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 55 "src/math.y" /* yacc.c:1646  */
-    { (yyval.node) = new Divide((yyvsp[-2].node), (yyvsp[0].node)); }
-#line 1288 "src/y.tab.c" /* yacc.c:1646  */
+#line 40 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) + (yyvsp[0]); }
+#line 1273 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 56 "src/math.y" /* yacc.c:1646  */
-    { (yyval.node) = new Negative((yyvsp[0].node)); }
-#line 1294 "src/y.tab.c" /* yacc.c:1646  */
+#line 41 "src/math.y" /* yacc.c:1646  */
+    { (yyval) = -(yyvsp[0]); }
+#line 1279 "src/y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1298 "src/y.tab.c" /* yacc.c:1646  */
+#line 1283 "src/y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1522,7 +1507,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 59 "src/math.y" /* yacc.c:1906  */
+#line 44 "src/math.y" /* yacc.c:1906  */
 
 
 #include <stdio.h>

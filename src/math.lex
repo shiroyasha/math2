@@ -2,14 +2,13 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include "ast.hpp"
 #include "y.tab.h"  // to get the token types
 %}
 
 %%
 
-[0-9]+\.[0-9]+ { yylval.number = atof(yytext); return NUMBER; }
-[1-9][0-9]*    { yylval.number = atof(yytext); return NUMBER; }
+[0-9]+\.[0-9]+ { yylval = atof(yytext); return NUMBER; }
+[1-9][0-9]*    { yylval = atof(yytext); return NUMBER; }
 
 "+" { return PLUS; }
 "-" { return MINUS; }

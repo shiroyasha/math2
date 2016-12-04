@@ -468,9 +468,8 @@ char *yytext;
 #include <vector>
 #include <iostream>
 #include <string>
-#include "ast.hpp"
 #include "y.tab.h"  // to get the token types
-#line 474 "src/lex.yy.c"
+#line 473 "src/lex.yy.c"
 
 #define INITIAL 0
 
@@ -657,10 +656,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 9 "src/math.lex"
+#line 8 "src/math.lex"
 
 
-#line 664 "src/lex.yy.c"
+#line 663 "src/lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -745,56 +744,56 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "src/math.lex"
-{ yylval.number = atof(yytext); return NUMBER; }
+#line 10 "src/math.lex"
+{ yylval = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 12 "src/math.lex"
-{ yylval.number = atof(yytext); return NUMBER; }
+#line 11 "src/math.lex"
+{ yylval = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 14 "src/math.lex"
+#line 13 "src/math.lex"
 { return PLUS; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 15 "src/math.lex"
+#line 14 "src/math.lex"
 { return MINUS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 16 "src/math.lex"
+#line 15 "src/math.lex"
 { return TIMES; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 17 "src/math.lex"
+#line 16 "src/math.lex"
 { return DIVIDE; }
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 19 "src/math.lex"
+#line 18 "src/math.lex"
 { return LINE_END; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 21 "src/math.lex"
+#line 20 "src/math.lex"
 ;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 22 "src/math.lex"
+#line 21 "src/math.lex"
 ;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 24 "src/math.lex"
+#line 23 "src/math.lex"
 ECHO;
 	YY_BREAK
-#line 798 "src/lex.yy.c"
+#line 797 "src/lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1792,7 +1791,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 24 "src/math.lex"
+#line 23 "src/math.lex"
 
 
 
