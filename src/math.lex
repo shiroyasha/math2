@@ -1,4 +1,5 @@
 %{
+#include <vector>
 #include <iostream>
 #include <string>
 #include "ast.hpp"
@@ -15,8 +16,9 @@
 "*" { return TIMES; }
 "/" { return DIVIDE; }
 
+\n { return LINE_END; }
+
 [ \t] ;
-\n ;
 . ;
 
 %%

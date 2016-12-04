@@ -45,34 +45,36 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    NUMBER = 258,
-    PLUS = 259,
-    MINUS = 260,
-    TIMES = 261,
-    DIVIDE = 262,
-    NEG = 263
+    LINE_END = 258,
+    NUMBER = 259,
+    PLUS = 260,
+    MINUS = 261,
+    TIMES = 262,
+    DIVIDE = 263,
+    NEG = 264
   };
 #endif
 /* Tokens.  */
-#define NUMBER 258
-#define PLUS 259
-#define MINUS 260
-#define TIMES 261
-#define DIVIDE 262
-#define NEG 263
+#define LINE_END 258
+#define NUMBER 259
+#define PLUS 260
+#define MINUS 261
+#define TIMES 262
+#define DIVIDE 263
+#define NEG 264
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE YYSTYPE;
 union YYSTYPE
 {
-#line 19 "src/math.y" /* yacc.c:1909  */
+#line 22 "src/math.y" /* yacc.c:1909  */
 
   double number;
   Expression* node;
-  Expression* math;
+  std::vector<Expression*>* math;
 
-#line 76 "src/y.tab.h" /* yacc.c:1909  */
+#line 78 "src/y.tab.h" /* yacc.c:1909  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1

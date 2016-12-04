@@ -1,4 +1,6 @@
 %{
+
+#include <vector>
 #include <iostream>
 #include <cstdlib>
 
@@ -13,15 +15,17 @@ void yyerror(const char *s) {
   exit(-1);
 }
 
-Expression* root = NULL;
+std::vector<Expression*>* exprs = new std::vector<Expression*>();
+
 %}
 
 %union {
   double number;
   Expression* node;
-  Expression* math;
+  std::vector<Expression*>* math;
 };
 
+%token LINE_END
 %token NUMBER
 %token PLUS MINUS TIMES DIVIDE
 
@@ -36,16 +40,20 @@ Expression* root = NULL;
 %start math
 %%
 
-math: expression { root = $$; }
-    ;
+math:
+  /* empty line */           { $$ = NULL; }
+  | LINE_END                 { $$ = NULL; }
+  | expression               { std::cout << $1->value() << std::endl; $$ = NULL; }
+  | expression LINE_END math { std::cout << $1->value() << std::endl; $$ = NULL; }
+  ;
 
 expression:
   NUMBER { $$ = new Number($1); }
   | expression PLUS expression   { $$ = new Plus($1, $3); }
-  /* | expression MINUS expression  { $$ = new Minus($1, $3); } */
-  /* | expression TIMES expression  { $$ = new Times($1, $3); } */
-  /* | expression DIVIDE expression { $$ = new Divide($1, $3); } */
-  /* | MINUS expression %prec NEG   { $$ = new Number(-$2); } */
+  | expression MINUS expression  { $$ = new Minus($1, $3); }
+  | expression TIMES expression  { $$ = new Times($1, $3); }
+  | expression DIVIDE expression { $$ = new Divide($1, $3); }
+  | MINUS expression %prec NEG   { $$ = new Negative($2); }
   ;
 
 %%
@@ -69,8 +77,6 @@ int main() {
   do {
     yyparse();
   } while(!feof(yyin));
-
-  std::cout << root->value() << std::endl;
 
   return 0;
 }

@@ -380,7 +380,7 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[18] =
     {   0,
-        0,    0,   11,    9,    7,    8,    5,    3,    4,    6,
+        0,    0,   11,    9,    8,    7,    5,    3,    4,    6,
         9,    2,    0,    0,    2,    1,    0
     } ;
 
@@ -465,11 +465,12 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "src/math.lex"
 #line 2 "src/math.lex"
+#include <vector>
 #include <iostream>
 #include <string>
 #include "ast.hpp"
 #include "y.tab.h"  // to get the token types
-#line 473 "src/lex.yy.c"
+#line 474 "src/lex.yy.c"
 
 #define INITIAL 0
 
@@ -656,10 +657,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 8 "src/math.lex"
+#line 9 "src/math.lex"
 
 
-#line 663 "src/lex.yy.c"
+#line 664 "src/lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -744,56 +745,56 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 10 "src/math.lex"
+#line 11 "src/math.lex"
 { yylval.number = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 11 "src/math.lex"
+#line 12 "src/math.lex"
 { yylval.number = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 13 "src/math.lex"
+#line 14 "src/math.lex"
 { return PLUS; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 14 "src/math.lex"
+#line 15 "src/math.lex"
 { return MINUS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 15 "src/math.lex"
+#line 16 "src/math.lex"
 { return TIMES; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 16 "src/math.lex"
+#line 17 "src/math.lex"
 { return DIVIDE; }
 	YY_BREAK
 case 7:
-YY_RULE_SETUP
-#line 18 "src/math.lex"
-;
-	YY_BREAK
-case 8:
-/* rule 8 can match eol */
+/* rule 7 can match eol */
 YY_RULE_SETUP
 #line 19 "src/math.lex"
+{ return LINE_END; }
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 21 "src/math.lex"
 ;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 20 "src/math.lex"
+#line 22 "src/math.lex"
 ;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 22 "src/math.lex"
+#line 24 "src/math.lex"
 ECHO;
 	YY_BREAK
-#line 797 "src/lex.yy.c"
+#line 798 "src/lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1791,7 +1792,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 22 "src/math.lex"
+#line 24 "src/math.lex"
 
 
 
