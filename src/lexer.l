@@ -6,7 +6,7 @@
 #include "y.tab.h"
 %}
 
-%option header-file="src/lex.yy.h"
+%option header-file="src/lexer.yy.h"
 
 %%
 

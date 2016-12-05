@@ -1,6 +1,6 @@
-#line 2 "src/lex.yy.c"
+#line 2 "src/lexer.yy.c"
 
-#line 4 "src/lex.yy.c"
+#line 4 "src/lexer.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -466,14 +466,14 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "src/math.lex"
-#line 2 "src/math.lex"
+#line 1 "src/lexer.l"
+#line 2 "src/lexer.l"
 #include <vector>
 #include <iostream>
 #include <string>
 
 #include "y.tab.h"
-#line 477 "src/lex.yy.c"
+#line 477 "src/lexer.yy.c"
 
 #define INITIAL 0
 
@@ -660,10 +660,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 11 "src/math.lex"
+#line 11 "src/lexer.l"
 
 
-#line 667 "src/lex.yy.c"
+#line 667 "src/lexer.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -748,66 +748,66 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 "src/math.lex"
+#line 13 "src/lexer.l"
 { yylval = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 "src/math.lex"
+#line 14 "src/lexer.l"
 { yylval = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 15 "src/math.lex"
+#line 15 "src/lexer.l"
 { yylval = 0; return NUMBER; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 17 "src/math.lex"
+#line 17 "src/lexer.l"
 { return PLUS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "src/math.lex"
+#line 18 "src/lexer.l"
 { return MINUS; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 19 "src/math.lex"
+#line 19 "src/lexer.l"
 { return TIMES; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 20 "src/math.lex"
+#line 20 "src/lexer.l"
 { return DIVIDE; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 21 "src/math.lex"
+#line 21 "src/lexer.l"
 { return EXPONENT; }
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 23 "src/math.lex"
+#line 23 "src/lexer.l"
 { return LINE_END; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 25 "src/math.lex"
+#line 25 "src/lexer.l"
 ;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 26 "src/math.lex"
+#line 26 "src/lexer.l"
 ;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 28 "src/math.lex"
+#line 28 "src/lexer.l"
 ECHO;
 	YY_BREAK
-#line 811 "src/lex.yy.c"
+#line 811 "src/lexer.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1805,7 +1805,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 28 "src/math.lex"
+#line 28 "src/lexer.l"
 
 
 

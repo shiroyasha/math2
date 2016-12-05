@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "y.tab.h"
-#include "lex.yy.h"
+#include "lexer.yy.h"
 
 extern int yylex(void);
 extern void yyerror(const char *);

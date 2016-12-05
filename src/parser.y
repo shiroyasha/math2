@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <cmath>
 
-#include "lex.yy.h"
+#include "lexer.yy.h"
 
 void yyerror(double* result, const char *s) {
   std::cout << "EEK, parse error!  Message: " << s << std::endl;
