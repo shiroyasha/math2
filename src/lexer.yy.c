@@ -472,7 +472,7 @@ char *yytext;
 #include <iostream>
 #include <string>
 
-#include "y.tab.h"
+#include "parser.tab.h"
 #line 477 "src/lexer.yy.c"
 
 #define INITIAL 0

@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "y.tab.h"
+#include "parser.tab.h"
 #include "lexer.yy.h"
 
 extern int yylex(void);

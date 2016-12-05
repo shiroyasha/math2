@@ -76,7 +76,7 @@ void yyerror(double* result, const char *s) {
 }
 
 
-#line 80 "src/y.tab.c" /* yacc.c:339  */
+#line 80 "src/parser.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -95,9 +95,9 @@ void yyerror(double* result, const char *s) {
 #endif
 
 /* In a future release of Bison, this section will be replaced
-   by #include "y.tab.h".  */
-#ifndef YY_YY_SRC_Y_TAB_H_INCLUDED
-# define YY_YY_SRC_Y_TAB_H_INCLUDED
+   by #include "parser.tab.h".  */
+#ifndef YY_YY_SRC_PARSER_TAB_H_INCLUDED
+# define YY_YY_SRC_PARSER_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -157,11 +157,11 @@ extern YYSTYPE yylval;
 extern YYLTYPE yylloc;
 int yyparse (double* result);
 
-#endif /* !YY_YY_SRC_Y_TAB_H_INCLUDED  */
+#endif /* !YY_YY_SRC_PARSER_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 165 "src/y.tab.c" /* yacc.c:358  */
+#line 165 "src/parser.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1333,37 +1333,37 @@ yyreduce:
         case 2:
 #line 31 "src/parser.y" /* yacc.c:1646  */
     { *result = 0; }
-#line 1337 "src/y.tab.c" /* yacc.c:1646  */
+#line 1337 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
 #line 32 "src/parser.y" /* yacc.c:1646  */
     { *result = (yyval); }
-#line 1343 "src/y.tab.c" /* yacc.c:1646  */
+#line 1343 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
 #line 36 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[0]); }
-#line 1349 "src/y.tab.c" /* yacc.c:1646  */
+#line 1349 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
 #line 37 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) + (yyvsp[0]); }
-#line 1355 "src/y.tab.c" /* yacc.c:1646  */
+#line 1355 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
 #line 38 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) - (yyvsp[0]); }
-#line 1361 "src/y.tab.c" /* yacc.c:1646  */
+#line 1361 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
 #line 39 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]) * (yyvsp[0]); }
-#line 1367 "src/y.tab.c" /* yacc.c:1646  */
+#line 1367 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
@@ -1376,23 +1376,23 @@ yyreduce:
       fprintf (stderr, "%d.%d-%d.%d: division by zero", (yylsp[0]).first_line, (yylsp[0]).first_column, (yylsp[0]).last_line, (yylsp[0]).last_column);
     }
   }
-#line 1380 "src/y.tab.c" /* yacc.c:1646  */
+#line 1380 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
 #line 48 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = pow((yyvsp[-2]), (yyvsp[0])); }
-#line 1386 "src/y.tab.c" /* yacc.c:1646  */
+#line 1386 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 49 "src/parser.y" /* yacc.c:1646  */
     { (yyval) = -(yyvsp[0]); }
-#line 1392 "src/y.tab.c" /* yacc.c:1646  */
+#line 1392 "src/parser.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1396 "src/y.tab.c" /* yacc.c:1646  */
+#line 1396 "src/parser.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires

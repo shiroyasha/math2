@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "y.tab.h"
+#include "parser.tab.h"
 %}
 
 %option header-file="src/lexer.yy.h"
